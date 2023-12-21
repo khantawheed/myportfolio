@@ -4,8 +4,8 @@ import Image from "next/image"
 const ProjectsComponent = () => {
   return (
     <div>
-      <section id="projects" className="h-fit flex-col bg-stone-200 container ">
-      <h1 className="text-xl font-bold mb-2 text-sky-500">Projects</h1>
+      <div id="projects" className="h-fit flex-col bg-stone-200 container my-20 ">
+      <h1 className="text-xl font-bold mx-48 pt-14 text-sky-500">Projects</h1>
         <div id="about" className="flex flex-row items-center justify-center p-8">
         
           <div className="mr-10">
@@ -32,7 +32,7 @@ const ProjectsComponent = () => {
         
         <div id="about" className="flex flex-row items-center justify-center p-8 ">
         
-          <div className="w-5/12 mr-10">
+          <div className="w-6/12 mr-10">
               <p className="text-base mb-2 text-sky-950">
                 Hello, I'm Tawheed Khan, a frontend developer based in Colchester. I recently completed my Master's in Advanced Computer Science from the University of Essex, and I bring over a year of experience working with React and Next.js.
               </p>
@@ -52,7 +52,7 @@ const ProjectsComponent = () => {
           </div>
         </div>
 
-      </section>
+      </div>
     </div>
   )
 }
