@@ -11,7 +11,6 @@ const AboutComponent = () => {
           <Image
             src={aboutme}
             alt='Your Photo'
-
             className='rounded-lg'
           />
         </div>

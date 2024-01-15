@@ -11,7 +11,7 @@ const ProjectCard = (props) => {
         <div className='p-2 mt-3'>
           <div className='flex flex-col justify-between'>
             <h3 className='font-semibold text-xl text-sky-950'>{props.title}</h3>
-            <p className='text-sm mt-3 text-sky-950 line-clamp-3'>{props.value}</p>
+            <p className='text-sm mt-1 text-sky-950 line-clamp-3'>{props.value}</p>
           </div>
           <div className='flex flex-row justify-between mt-3'>
             <div className='flex gap-2'>
