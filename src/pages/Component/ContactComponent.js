@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
+
 const ContactComponent = () => {
+  const [state, handleSubmit] = useForm("mzbndzkn");
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleSuccessClose = () => {
+    setShowSuccess(false);
+  };
+
+  useEffect(() => {
+    if (state.succeeded) {
+      setShowSuccess(true);
+    }
+  }, [state.succeeded]);
   return (
-    <div className="min-h-screen bg-white">
-      <div className="flex justify-center items-center mx-auto py-10 lg:py-20 px-4 lg:px-8">
-        <div className="w-full lg:w-2/3">
-          <h1 className="text-4xl font-bold mb-8 text-sky-500 text-center">Contact Me</h1>
+    <div className="min-h-screen bg-[#081b29] flex justify-center pt-16 pb-5"> 
+      <div className="w-full lg:w-2/3 px-4">
+        <h1 className="text-4xl font-bold mb-8 text-sky-500 text-center">Contact Me</h1>
 
-          <p className="text-lg mb-4 text-center">
-            I would love to hear from you! Whether you have a question, want to collaborate, or just want to say hi, feel free to get in touch using the form below or through my social media profiles.
-          </p>
+        <p className="text-lg mb-4 text-center text-[#ededed]">
+          I would love to hear from you! Whether you have a question, want to collaborate, or just want to say hi, feel free to get in touch using the form below or through my social media profiles.
+        </p>
 
-          {/* Contact Form (replace with your own form implementation) */}
-          <form className="mb-2">
-            <div className="mb-4">
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+        <form
+          className="mb-2"
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}>
+          <div className="mb-4">
+              <label htmlFor="name" className="block text-sm font-medium text-[#ededed]">
                 Name
               </label>
               <input
@@ -23,10 +39,15 @@ const ContactComponent = () => {
                 className="mt-1 p-2 w-full border rounded-md"
                 placeholder="Your Name"
               />
+              <ValidationError 
+                prefix="Email" 
+                field="email"
+                errors={state.errors}
+              />
             </div>
 
             <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block text-sm font-medium text-[#ededed]">
                 Email
               </label>
               <input
@@ -36,10 +57,15 @@ const ContactComponent = () => {
                 className="mt-1 p-2 w-full border rounded-md"
                 placeholder="Your Email"
               />
+              <ValidationError 
+                prefix="Message" 
+                field="message"
+                errors={state.errors}
+              />
             </div>
 
             <div className="mb-4">
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="message" className="block text-sm font-medium text-[#ededed]">
                 Message
               </label>
               <textarea
@@ -49,6 +75,11 @@ const ContactComponent = () => {
                 className="mt-1 p-2 w-full border rounded-md"
                 placeholder="Your Message"
               ></textarea>
+              <ValidationError 
+                prefix="Message" 
+                field="message"
+                errors={state.errors}
+              />
             </div>
 
             <button
@@ -57,9 +88,22 @@ const ContactComponent = () => {
             >
               Send Message
             </button>
-          </form>
-        </div>
+        </form>
       </div>
+
+      {showSuccess && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-8 rounded-md text-center">
+            <p className="text-lg mb-4">Thanks for your message! I will get back to you soon.</p>
+            <button
+              className="bg-sky-500 text-white py-2 px-4 rounded-md font-semibold hover:bg-sky-700"
+              onClick={handleSuccessClose}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

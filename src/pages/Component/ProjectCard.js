@@ -4,7 +4,7 @@ import Image from 'next/image';
 const ProjectCard = (props) => {
   return (
     <div className='w-full lg:w-1/4 md:w-1/3 p-3'>
-      <div className='bg-stone-200 p-3 rounded-lg'>
+      <div className='bg-white p-3 rounded-lg'>
         <div>
           <Image className="rounded-xl h-44 w-full" src={props.img} alt="img" />
         </div>
@@ -15,8 +15,8 @@ const ProjectCard = (props) => {
           </div>
           <div className='flex flex-row justify-between mt-3'>
             <div className='flex gap-2'>
-              <button className='px-3 text-sm text-white bg-sky-950 hover:text-sky-500 transition-all rounded-lg'>GitHub</button>
-              <button className='px-3 text-sm text-white bg-sky-950 hover:text-sky-500 transition-all rounded-lg'>Live Demo</button>
+              <button className='px-3 text-sm text-white  bg-[#081b29]  transition-all rounded-md'>GitHub</button>
+              <button className='px-3 text-sm text-white  bg-[#081b29]  transition-all rounded-md'>Live Demo</button>
             </div>
           </div>
         </div>

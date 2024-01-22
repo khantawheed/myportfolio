@@ -1,3 +1,4 @@
+"use client";
 import AboutComponent from '../pages/Component/AboutComponent'
 import ContactComponent from '../pages/Component/ContactComponent'
 import Footer from '../pages/Component/Footer'
