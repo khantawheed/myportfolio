@@ -19,7 +19,7 @@
   animation: wordPrinting 2s steps(22) infinite;
 }
 .my-photo-animation{
-box-shadow: 0 5px 5px 5px rgba(13, 110,253, 0.1);
+box-shadow: 0 5px 5px 5px rgba(0, 200, 255, 0.927);
 animation: myphotoanimation 5s ease-in-out infinite;
 transition: all 1s ease-in-out;
 }
