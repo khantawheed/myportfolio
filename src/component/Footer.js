@@ -3,7 +3,7 @@ import { FaLinkedin, FaTwitterSquare, FaInstagram, FaFacebook, FaEnvelope } from
 
 const Footer = () => {
   return (
-    <div>
+    <footer>
       <div className="bg-gray-800 text-white py-4 text-center">
         <p className="text-sm">
           &copy; {new Date().getFullYear()} Tawheed Khan. All rights reserved.
@@ -27,7 +27,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

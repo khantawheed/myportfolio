@@ -1,16 +1,14 @@
 "use client";
-import AboutComponent from '../pages/Component/AboutComponent'
-import ContactComponent from '../pages/Component/ContactComponent'
-import Footer from '../pages/Component/Footer'
-import HomeComponent from '../pages/Component/HomeComponent'
-import NavbarComponent from '../pages/Component/NavbarComponent'
-import ProjectsComponent from '../pages/Component/ProjectsComponent'
+import AboutComponent from '@/component/AboutComponent';
+import ContactComponent from '@/component/ContactComponent'
+import HomeComponent from '@/component/HomeComponent'
+import ProjectsComponent from '@/component/ProjectsComponent'
 
 export default function Home() {
   return (
     
       <div>
-        <NavbarComponent/>
+      
         <main>
           <div id='home'>
             <HomeComponent/>
@@ -25,7 +23,7 @@ export default function Home() {
             <ContactComponent/>
           </div>
         </main>
-        <Footer/>
+       
       </div>
     
   )
