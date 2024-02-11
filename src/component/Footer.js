@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLinkedin, FaTwitterSquare, FaInstagram, FaFacebook, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaTwitterSquare, FaInstagram, FaFacebook, FaEnvelope, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -10,8 +10,8 @@ const Footer = () => {
         </p>
         <div className="flex justify-center mt-2">
           {/* Social media icons with links */}
-          <a href="https://twitter.com/your_twitter_profile" className="text-sky-500 hover:underline mx-2">
-            <FaTwitterSquare className="text-lg" />
+          <a href="https://github.com/khantawheed?tab=repositories" className="text-sky-500 hover:underline mx-2">
+            <FaGithub className="text-lg" />
           </a>
           <a href="https://linkedin.com/in/tawheed-khan-21114115a" className="text-sky-500 hover:underline mx-2">
             <FaLinkedin className="text-lg" />

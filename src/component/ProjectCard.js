@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { GrCode } from "react-icons/gr";
 import { RiLiveLine } from "react-icons/ri";
 import { IoMdInformationCircleOutline } from "react-icons/io";
-import PropTypes from 'prop-types';
+
 const ProjectCard = (props) => {
   return (
     <div className='w-full lg:w-1/3 md:w-1/3 p-3 relative'>
@@ -21,7 +21,7 @@ const ProjectCard = (props) => {
         </div>
         <div className='p-2 mt-3'>
           <div className='flex flex-col justify-between'>
-            <h3 className='font-semibold text-xl text-white'>{props.title}</h3>
+            <h3 className='font-semibold text-xl text-white truncate'>{props.title}</h3>
             {/* <p className='text-sm mt-1 text-sky-950 line-clamp-3'>{props.value}</p> */}
             <Link href={`${props.detail}`} className="text-sky-500 flex py-2 gap-1 font-medium">
                 More Info <IoMdInformationCircleOutline className='text-sky-500' size={20}/>
