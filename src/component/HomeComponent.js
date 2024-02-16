@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 const HomeComponent = () => {
+  const downloadFileName = 'tawheednewCV.pdf';
   return (
     <div className='bg-[#081b29] flex flex-col items-center justify-center gap-8 w-full'>
       <div className='flex flex-col justify-center lg:flex-row lg:justify-center items-center lg:px-32 px-5 gap-5 mt-20 lg:mt-20'>
@@ -17,12 +18,13 @@ const HomeComponent = () => {
             Proficient in modern web technologies, I bring creativity and attention to detail to every project.
           </p>
           <div className="flex flex-col lg:flex-row gap-2">
-            <button
-              href="#portfolio"
-              className="bg-sky-500 text-white py-2 px-4 rounded-full font-semibold text-lg transition duration-300 hover:bg-[#081b29] hover:text-[#00abf0]"
+            <Link
+              href={'/tawheednewCV.pdf'}
+              download={downloadFileName}
+              className="bg-sky-500 text-white py-2 px-4 rounded-full text-center font-semibold text-lg transition duration-300 hover:bg-[#081b29] hover:text-[#00abf0]"
             >
               Download CV
-            </button>
+            </Link>
             <Link href="/#contact" className="bg-[#081b29] text-[#ededed]  text-center mt-2 lg:mt-0 py-2 px-4 rounded-full font-semibold text-lg border-2 border-sky-500 transition duration-300 hover:bg-white hover:text-[#081b29]">
               Contact Me
             </Link>
@@ -32,8 +34,8 @@ const HomeComponent = () => {
           <Image src='/image/heroimage.png' height={350} width={300} className='my-photo-animation' alt='my photo'/>
         </div>
       </div>
-      <div className="flex items-center justify-center p-3 border-2 border-sky-500 rounded-xl shadow-md bg-white w-full mt-5 lg:w-1/2 lg:mb-10 mx-5" >
-        <h4 className='text-sky-950 font-bold mr-2'>Tech <span className='border-r-2 border-sky-500 inline-block p-2'>Stack</span></h4>
+      <div className="flex items-center justify-center p-3 border-2 border-sky-500 rounded-xl shadow-md bg-white w-full mt-5 md:w-3/4 lg:w-2/3 xl:w-1/2 lg:mx-auto lg:mb-10 mx-5">
+        <h4 className='text-sky-950 font-bold mr-2'>Tech <span className='border-r-2 border-white md:border-sky-500 inline-block pr-2 '>Stack</span></h4>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Image src='/image/html.jpg' height={30} width={30} className="mx-2 my-2" alt="logo"/>
           <Image src='/image/css.jpg' height={30} width={30} className="mx-2 my-2"alt="logo" />

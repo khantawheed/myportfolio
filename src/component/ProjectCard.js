@@ -6,7 +6,7 @@ import { IoMdInformationCircleOutline } from "react-icons/io";
 
 const ProjectCard = (props) => {
   return (
-    <div className='w-full lg:w-1/3 md:w-1/3 p-3 relative'>
+    <div className='w-full p-3 relative'>
       <div className='border-2 p-3 group'>
         <div className='relative'>
           <Image className="w-full h-36" src={props.img} height={650} width={750} alt="img" />

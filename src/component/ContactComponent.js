@@ -17,7 +17,7 @@ const ContactComponent = () => {
   }, [state.succeeded]);
   return (
     <div className="bg-[#081b29] flex justify-center pb-5"> 
-      <div className="w-full lg:w-2/3 px-4">
+      <div className="w-full lg:w-1/2 px-4">
         <h1 className="text-4xl font-bold mb-8 text-sky-500 text-center pt-10">Contact Me</h1>
 
         <p className="text-lg mb-4 text-center text-[#ededed]">
