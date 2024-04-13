@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 const HomeComponent = () => {
-  const downloadFileName = 'tawheednewCV.pdf';
+  const downloadFileName = 'resume';
   return (
     <div className='bg-[#081b29] flex flex-col items-center justify-center gap-8 w-full'>
       <div className='flex flex-col justify-center lg:flex-row lg:justify-center items-center lg:px-32 px-5 gap-5 mt-20 lg:mt-20'>
@@ -19,7 +19,7 @@ const HomeComponent = () => {
           </p>
           <div className="flex flex-col lg:flex-row gap-2">
             <Link
-              href={'/tawheednewCV.pdf'}
+              href={'/resume7.pdf'}
               download={downloadFileName}
               className="bg-sky-500 text-white py-2 px-4 rounded-full text-center font-semibold text-lg transition duration-300 hover:bg-[#081b29] hover:text-[#00abf0]"
             >
