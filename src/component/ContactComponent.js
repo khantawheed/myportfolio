@@ -1,112 +1,139 @@
-'use client'
-import React, { useState, useEffect } from 'react';
-import { useForm, ValidationError } from '@formspree/react';
+"use client";
 
-const ContactComponent = () => {
+import { useState, useEffect } from "react";
+import { useForm, ValidationError } from "@formspree/react";
+
+export default function ContactComponent() {
   const [state, handleSubmit] = useForm("mzbndzkn");
   const [showSuccess, setShowSuccess] = useState(false);
-
-  const handleSuccessClose = () => {
-    setShowSuccess(false);
-  };
 
   useEffect(() => {
     if (state.succeeded) {
       setShowSuccess(true);
     }
   }, [state.succeeded]);
+
   return (
-    <div className="bg-[#081b29] flex justify-center pb-5"> 
-      <div className="w-full lg:w-1/2 px-4">
-        <h1 className="text-4xl font-bold mb-8 text-sky-500 text-center pt-10">Contact Me</h1>
+    <section className="relative bg-slate-950 py-24 text-white">
+      {/* Background Glow */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute left-10 top-20 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
+        <div className="absolute right-10 bottom-20 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl" />
+      </div>
 
-        <p className="text-lg mb-4 text-center text-[#ededed]">
-          I would love to hear from you! Whether you have a question, want to collaborate, or just want to say hi, feel free to get in touch using the form below or through my social media profiles.
-        </p>
+      <div className="mx-auto max-w-4xl px-6 lg:px-12">
+        {/* Heading */}
+        <div className="mb-16 text-center">
+          <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-5 py-2 text-sm font-medium text-cyan-300">
+            Get In Touch
+          </span>
 
+          <h2 className="mt-6 text-5xl font-bold md:text-6xl">
+            Let's Work
+            <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              Together
+            </span>
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
+            Have a project in mind, an opportunity, or just want to say hello?
+            I'd love to hear from you.
+          </p>
+        </div>
+
+        {/* Form */}
         <form
-          className="mb-2"
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}>
-          <div className="mb-4">
-              <label htmlFor="name" className="block text-sm font-medium text-[#ededed]">
-                Name
+          onSubmit={handleSubmit}
+          className="rounded-[2rem] border border-slate-800 bg-slate-900/80 p-8 backdrop-blur-xl md:p-12"
+        >
+          <div className="grid gap-6 md:grid-cols-2">
+            <div>
+              <label className="mb-3 block text-sm font-medium text-slate-300">
+                Full Name
               </label>
               <input
                 type="text"
-                id="name"
                 name="name"
-                className="mt-1 p-2 w-full border rounded-md"
-                placeholder="Your Name"
-              />
-              <ValidationError 
-                prefix="Email" 
-                field="email"
-                errors={state.errors}
+                required
+                placeholder="John Doe"
+                className="w-full rounded-2xl border border-slate-700 bg-slate-950 px-5 py-4 text-white outline-none transition focus:border-cyan-400"
               />
             </div>
 
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-medium text-[#ededed]">
-                Email
+            <div>
+              <label className="mb-3 block text-sm font-medium text-slate-300">
+                Email Address
               </label>
               <input
                 type="email"
-                id="email"
                 name="email"
-                className="mt-1 p-2 w-full border rounded-md"
-                placeholder="Your Email"
+                required
+                placeholder="john@example.com"
+                className="w-full rounded-2xl border border-slate-700 bg-slate-950 px-5 py-4 text-white outline-none transition focus:border-cyan-400"
               />
-              <ValidationError 
-                prefix="Message" 
-                field="message"
+              <ValidationError
+                prefix="Email"
+                field="email"
                 errors={state.errors}
+                className="mt-2 text-red-400"
               />
             </div>
+          </div>
 
-            <div className="mb-4">
-              <label htmlFor="message" className="block text-sm font-medium text-[#ededed]">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                className="mt-1 p-2 w-full border rounded-md"
-                placeholder="Your Message"
-              ></textarea>
-              <ValidationError 
-                prefix="Message" 
-                field="message"
-                errors={state.errors}
-              />
-            </div>
+          <div className="mt-6">
+            <label className="mb-3 block text-sm font-medium text-slate-300">
+              Message
+            </label>
+            <textarea
+              name="message"
+              rows={6}
+              required
+              placeholder="Tell me about your project..."
+              className="w-full rounded-2xl border border-slate-700 bg-slate-950 px-5 py-4 text-white outline-none transition focus:border-cyan-400"
+            />
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={state.errors}
+              className="mt-2 text-red-400"
+            />
+          </div>
 
-            <button
-              type="submit"
-              className="bg-sky-500 text-white py-2 px-4 rounded-md font-semibold hover:bg-sky-700"
-            >
-              Send Message
-            </button>
+          <button
+            type="submit"
+            disabled={state.submitting}
+            className="mt-8 w-full rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-semibold text-black transition hover:scale-[1.02] disabled:opacity-50"
+          >
+            {state.submitting ? "Sending..." : "Send Message"}
+          </button>
         </form>
       </div>
 
+      {/* Success Modal */}
       {showSuccess && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-8 rounded-md text-center">
-            <p className="text-lg mb-4">Thanks for your message! I will get back to you soon.</p>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4">
+          <div className="w-full max-w-md rounded-3xl border border-slate-700 bg-slate-900 p-8 text-center shadow-2xl">
+            <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-cyan-500/20 text-4xl">
+              ✓
+            </div>
+
+            <h3 className="text-3xl font-bold text-white">
+              Message Sent!
+            </h3>
+
+            <p className="mt-4 text-slate-400">
+              Thank you for reaching out. I'll get back to you as soon as possible.
+            </p>
+
             <button
-              className="bg-sky-500 text-white py-2 px-4 rounded-md font-semibold hover:bg-sky-700"
-              onClick={handleSuccessClose}
+              onClick={() => setShowSuccess(false)}
+              className="mt-8 rounded-2xl bg-cyan-500 px-8 py-3 font-semibold text-black transition hover:bg-cyan-400"
             >
               Close
             </button>
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
-};
-
-export default ContactComponent;
+}
